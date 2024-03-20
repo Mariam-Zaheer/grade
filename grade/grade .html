@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <script>
+        // Function to calculate the grade based on marks
+        function calculateGrade(marks) {
+            let totalMarks = 0;
+            for (let i = 0; i < marks.length; i++) {
+                totalMarks += marks[i];
+            }
+            let averageMarks = totalMarks / marks.length;
+
+            let grade;
+            if (averageMarks >= 90) {
+                grade = 'A+';
+            } else if (averageMarks >= 80) {
+                grade = 'A';
+            } else if (averageMarks >= 70) {
+                grade = 'B';
+            } else if (averageMarks >= 60) {
+                grade = 'C';
+            } else if (averageMarks >= 50) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+            return { grade, totalMarks };
+        }
+
+        // Function to take input from the user for marks
+        function takeInput() {
+            let marks = [];
+            for (let i = 0; i < 5; i++) {
+                let subjectMark = parseFloat(prompt("Enter marks for Subject " + (i + 1) + ":"));
+                marks.push(subjectMark);
+            }
+            return marks;
+        }
+
+        // Main function
+        function main() {
+            let marks = takeInput();
+            let { grade, totalMarks } = calculateGrade(marks);
+            
+            console.log("Your grade is: " + grade);
+            console.log('Sum of all subject marks:', totalMarks);
+            return result="grade sum of all numbers";
+        }
+
+        // Run the main function
+        main();
+    </script>
+</body>
+</html>
